@@ -1,0 +1,45 @@
+{% extends 'base.html'%}
+{% block title%} Pan|Pay{% endblock %}
+{% load static %}
+{% block content %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success">
+    <a class="close" href="#" data-dismiss="alert">×</a>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div class="container">
+    <h3 class="text-center" style="margin-top: 5%;">Pay <strong>150</strong> Rs.</h3>
+    <br>
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <h4 class="text-center">BY QR CODE</h4>
+            <div class="card text-center" style="width:300px">
+                <img class="card-img-top" src="{% static 'images/new_qr.jpg' %}" alt="Card image">
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <h4 class="text-center">BY MOBILE NO.</h4>
+            <div class="card text-center" style="width:300px">
+                <img class="card-img-top" src="{% static 'images/9999.jpg' %}" alt="Card image">
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <h4 class="text-center">TRANSACION ID</h4>
+            <div class="card text-center" style="width:300px">
+                <br>
+                <P style="color:green;" class="font-italic">Please enter your transaction id, If payment is done.</P><br>
+                <form method='post'>
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="btn btn-success btn-lg btn-block">submit</button>
+                </form>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

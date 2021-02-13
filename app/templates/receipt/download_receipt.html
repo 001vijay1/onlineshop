@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title%} Pan|Receipt{% endblock %}
+{% block content %}
+<div class="header" style="background-color:rgb(253, 153, 23);padding:20px;">
+    <h2 class="text-center" style="color:white;">DOWNLOAD RECEIPT</h2>
+</div>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success">
+    <a class="close" href="#" data-dismiss="alert">×</a>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div style="margin-top:5%;">
+    <div class="row">
+        <div class="col-sm-5 col-md-5 col-lg-5"></div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <div class="card" style="width: 15rem;height: 18rem;background-color: rgb(253, 153, 23);">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h4 class="text-center" style="padding:8%;color:white;">VERIFY</h4>
+                    </div>
+                    <div class="ibox-content container">
+                        <form method="post" >
+                            {% csrf_token %}
+                            {{form.as_p}}
+                            <button type="submit" class="btn btn-success btn-sm btn-block">Download</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-5 col-md-5 col-lg-5"></div>
+    </div>
+</div>
+{% endblock %}

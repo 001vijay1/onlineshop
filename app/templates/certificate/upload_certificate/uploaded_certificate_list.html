@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block title %}Uploaded|Certificate List{% endblock %}
+{% block  content %}
+<div class="header" style="background-color:rgb(253, 153, 23);padding:20px;">
+    <h2 class="text-center" style="color:white;">CERTIFICATE LIST</h2>
+</div>
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+<br>
+<div class="row">
+    <div class="col-sm-4 col-md-2 col-lg-2"></div>
+    <div class="col-sm-4 col-md-8 col-lg-8">
+        <table id="example" class="display table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr>
+                    <th>REGISTRATION NO</th>
+                    <th>DATE</th>
+                    <th>CERTIFICATE</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in data %}
+                <tr>
+                    <td>{{item.registration_no}}</td>
+                    <td>{{item.date}}</td>
+                    <td><a href="/media/{{item.certificate}}" class="btn btn-success" download>Download</a></td>
+                    <td><a href="{% url 'delete_certificate' id=item.id %}" class="btn btn-danger">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>REGISTRATION NO</th>
+                    <th>DATE</th>
+                    <th>CERTIFICATE</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="col-sm-4 col-md-2 col-lg-2"></div>
+</div>
+<br>
+    <script>
+
+        $(document).ready( function () {
+            $('#example').DataTable();
+        });
+    </script>
+{% endblock %}

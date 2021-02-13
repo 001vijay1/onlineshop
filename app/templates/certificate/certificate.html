@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block title%} आय|जाति|निवास{% endblock %}
+{% block css %} 
+fieldset {
+    background-color: #eeeeee;
+  }
+  
+legend {
+background-color: rgb(253, 153, 23);
+color: white;
+padding: 5px 10px;
+}
+{% endblock %}
+{% block content %}
+<div class="header" style="background-color:rgb(253, 153, 23);padding:20px;">
+    <h2 class="text-center" style="color:white;">आय , जाति , निवास प्रमाण पत्र</h2>
+</div>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success">
+    <a class="close" href="#" data-dismiss="alert">×</a>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div style="margin-top:2%;">
+    <div class="row">
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+        <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+            <h4 class="text-center" style="color: rgb(253, 153, 23);">PLEASE SELECT</h4>
+            <br>
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="text-center">
+                    <label for="income" class="font-weight-bold">आय प्रमाण पत्र</label>&nbsp;
+                    <input type="checkbox" name="income" onclick="check()" id="income">&nbsp;&nbsp;
+                    <label for="domicile" class="font-weight-bold">निवास प्रमाण पत्र</label>&nbsp;
+                    <input type="checkbox" name="domicile" onclick="check()" id="domicile">&nbsp;&nbsp;
+                    <label for="caste" class="font-weight-bold">जाति प्रमाण पत्र</label>&nbsp;
+                    <input type="checkbox" name="caste" onclick="check()" id="caste">
+                    <input type="hidden" name="rupee" id="rupee" value="">
+                    <p class="font-weight-bold">YOU PAY RS. : <span id="rupees">0</span></p>
+                </div>
+                <div class="row container">
+                    <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+                    <div class="col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                        <fieldset>
+                            <legend>आवेदन केवल मेहनगर(आजमगढ़,ऊ.प्र.) तहसील के लिए</legend>
+                            {{form.as_p}}
+                            <br>
+                            <button type="submit" class="btn btn-lg btn-block" style="background-color: rgb(253, 153, 23);color:white;" >Submit</button>
+                        </fieldset>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+                </div>
+                <br>
+                <br>
+            </form>
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2"></div>
+    </div>
+</div>
+<script>
+var rs = 0
+function check() {
+    var a = $("input[name=income]").is(':checked');
+    var b = $("input[name=domicile]").is(':checked');
+    var c = $("input[name=caste]").is(':checked');
+    if(a==true && b==true && c==true) {
+        rs=200
+        $('#rupees').html(rs)
+        $('#rupee').val(rs)
+    }
+    else if(a==false && b==false && c==false) {
+        rs=0
+        $('#rupees').html(rs)
+        $('#rupee').val(rs)
+    }
+    else if(((a==true && b==false) && (a==true && c==false))||((b==true && c==false) && (b==true && a==false)||((c==true && a==false) &&(c==true && b==false)))) {
+        rs=70
+        $('#rupees').html(rs)
+        $('#rupee').val(rs)
+    }
+    else if(((a==true && b==true) && c==false)||((a==true && c==true) && b==false)) {
+        rs=140
+        $('#rupees').html(rs)
+        $('#rupee').val(rs)
+    }
+    else if((b==true && c==true) && a==false) {
+        rs=140
+        $('#rupees').html(rs)
+        $('#rupee').val(rs)
+    }
+}
+</script>
+{% endblock %}

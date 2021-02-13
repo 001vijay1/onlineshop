@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title%} Pan|Receipt{% endblock %}
+{% block content %}
+<div class="header" style="background-color:rgb(253, 153, 23);padding:20px;">
+    <h2 class="text-center" style="color:white;">Government Scheme</h2>
+</div>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success">
+    <a class="close" href="#" data-dismiss="alert">×</a>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div style="margin-top:5%;">
+    <div class="container">
+        <table>
+            <thead class="table">
+                <tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr><tr></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="https://www.sarkariresult.com/" target="blank" class="btn btn-success btn-block">न्यू वेकेंसी</a></td>
+                    <td><a href="http://ceouttarpradesh.nic.in/rollpdf/rollpdf.aspx" target="blank" class="btn btn-info btn-block text-center">ऊ.प्र.वोटर लिस्ट डाउनलोड करे</a></td>
+                    <td><a href="https://nfsa.up.gov.in/Food/citizen/Default.aspx" target="blank" class="btn btn-primary btn-block text-center">ऊ.प्र.राशन कार्ड की पात्रता सूची</a></td>
+                    <td><a href="https://eproc.up.gov.in/Uparjan/Home_Reg.aspx" target="blank" class="btn btn-danger btn-block text-center">ऊ.प्र.खरीद हेतु किसान पंजीकरण</a></td>
+                    <td><a href="http://upbhulekh.gov.in/public/public_ror/Public_ROR.jsp" target="blank" class="btn btn-warning btn-block text-center">ऊ.प्र.खतौनी नकल देखे</a></td>
+                </tr>
+                <tr>
+                    <td><a href="http://sspy-up.gov.in/IndexOAP.aspx" target="blank" class="btn btn-warning btn-block text-center">ऊ.प्र.वृद्धावस्था पेंशन पंजीकरण</a></td>
+                    <td><a href="http://sspy-up.gov.in/IndexWIDOW.aspx" target="blank" class="btn btn-danger btn-block text-center">ऊ.प्र.विधवा महिला पेंशन पंजीकरण</a></td>
+                    <td><a href="http://sspy-up.gov.in/IndexHANDICAP.aspx" target="blank" class="btn btn-success btn-block text-center">ऊ.प्र.विकलाँग पेंशन पंजीकरण</a></td>
+                    <td><a href="https://upresults.nic.in/" target="blank" class="btn btn-info btn-block text-center">ऊ.प्र.दासवी बारवी परिणाम</a></td>
+                    <td><a href="http://exam.vbspu.ac.in/result/index.html" target="blank" class="btn btn-primary btn-block text-center">VBSPU RESULT</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://eaadhaar.uidai.gov.in/#/" target="blank" class="btn btn-success btn-block text-center">आधार कार्ड डाउनलोड करे</a></td>
+                    <td><a href="https://resident.uidai.gov.in/check-aadhaar" target="blank" class="btn btn-info btn-block text-center">आधार संसोधन चेक करे </a></td>
+                    <td><a href="https://residentpvc.uidai.gov.in/order-pvcreprint" target="blank" class="btn btn-danger btn-block text-center">प्लास्टिक आधार कार्ड मँगाए </a></td>
+                    <td><a href="https://ssup.uidai.gov.in/ssup/" target="blank" class="btn btn-warning btn-block text-center">आधार संसोधन करे</a></td>
+                    <td><a href="https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html" target="blank" class="btn btn-danger btn-block text-center">पैन कार्ड ऑनलाइन</a></td>
+                </tr>
+                <tr>
+                    <td><a href="https://uppcl.mpower.in/wss/index.htm" target="blank" class="btn btn-danger btn-block text-center">ऊ.प्र.बिजली बिल जमा करे </a></td>
+                    <td><a href="https://www.irctc.co.in/nget/train-search" target="blank" class="btn btn-success btn-block text-center">टिकिट बुक करे </a></td>
+                    <td><a href="http://www.indianrail.gov.in/enquiry/PNR/PnrEnquiry.html?locale=en" target="blank" class="btn btn-info btn-block text-center">टिकिट PNR स्थिति चेक करे</a></td>
+                    <td><a href="https://passportindia.gov.in/AppOnlineProject/user/userLogin" target="blank" class="btn btn-primary btn-block text-center">पासपोर्ट ऑनलाइन करे </a></td>
+                    <td><a href="https://student.nielit.gov.in/" target="blank" class="btn btn-success btn-block text-center">CCC फॉर्म ऑनलाइन </a></td>
+                </tr>
+                <tr>
+                    <td><a href="http://e-nagarsewaup.gov.in/ulbapps/death_birth/onlineBirthSearch.action" target="blank" class="btn btn-success btn-block text-center">ऊ.प्र.जन्म प्रमाण पत्र</a></td>
+                    <td><a href="https://pmkisan.gov.in/RegistrationForm.aspx" target="blank" class="btn btn-danger btn-block text-center">PM किसान पंजीकरण  </a></td>
+                    <td><a href="https://pmkisan.gov.in/BeneficiaryStatus.aspx" target="blank" class="btn btn-primary btn-block text-center">PM किसान स्थिति चेक करे</a></td>
+                    <td><a href="https://uppcl.mpower.in/wss/QuickBillPay.htm" target="blank" class="btn btn-warning btn-block text-center">Check Electricity Bill</a></td>
+                    <td><a href="https://www.nvsp.in/forms/" target="blank" class="btn btn-info btn-block text-center">वोटर कार्ड संशोधन </a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

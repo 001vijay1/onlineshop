@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block css %}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+{% endblock%}
+{% block content %}
+<div style="margin-top:10%;padding:8%;background-color:pink;">
+    <h4 style="color:green;">Your registration has been successful. Your registration number is <strong>{{new_registration}}</strong></h4>
+    <p>You can download your certificate using this registration number in download section.<p>
+    <div class="center">
+        <a href="{% url 'home' %}" class="btn btn-success float-right">Back to home</a>
+    </div>
+</div>
+{% endblock %}

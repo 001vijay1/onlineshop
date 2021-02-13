@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block title%} Customer|Data{% endblock %}
+{% load static %}
+{% block content %}
+<div class="header" style="background-color:rgb(253, 153, 23);padding:20px;">
+    <h2 class="text-center" style="color:white;">Customer Details</h2>
+</div>
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-success">
+    <a class="close" href="#" data-dismiss="alert">×</a>
+    {{ message }}
+</div>
+{% endfor %}
+{% endif %}
+<div style="margin-top:5%;">
+{% if data %}
+    <div class="row">
+        <div class="col-sm-4 col-md-3 col-lg-3"></div>
+        <div class="col-sm-4 col-md-6 col-lg-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5>Name : <span>{{data.name}}</span></h5>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5>Father Name : <span>{{data.father_name}}</span></h5>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5>Mother Name : <span>{{data.mother_name}}</span></h5>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5>Mobile No. : <span>{{data.mobile}}</span></h5>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5>Data : <span>{{data.date}}</span></h5>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5>Transaction Id : <span>{{data.txn}}</span></h5>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5>Registration No.: <span>{{data.registration_no}}</span></h5>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5>Service : <span>{{data.service}}</span></h5>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5>Client Photo : <span><a href="/media/{{data.client_photo}}" download>
+                                Click & download
+                            </a></span></h5>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5>Adhaar Front : <span><a href="/media/{{data.adhaar_front}}" download>
+                                Click & download
+                            </a></span></h5>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <h5>Adhaar Back : <span><a href="/media/{{data.adhaar_back}}" download>
+                                Click & download
+                            </a></span></h5>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-sm-12 col-md-12 col-lg-12">
+                        <a href="{% url 'cust_certificate_list' %}" class="btn btn-success float-right">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-3"></div>
+    </div>
+    {% else %}
+    <h2 class='text-center'>No data available!</h2>
+{% endif%}
+</div>
+    
+    
+{% endblock %}

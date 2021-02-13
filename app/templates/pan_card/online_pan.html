@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block title %}Pan|Form{% endblock%}
+{% load static %}
+{% block css %}
+fieldset {
+  background-color:  #eeeeee;
+}
+
+legend {
+  background-color: rgb(253, 153, 23);
+  color: white;
+}
+{% endblock %}
+{% block content %}
+<div class="header" style="background-color:rgb(253, 153, 23);padding:20px;">
+    <h2 class="text-center" style="color:white;">PAN ONLINE FORM</h2>
+</div>
+<br>
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+<div class="row">
+    <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+        <div class="ibox-content">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset>
+                    <legend class="text-center font-weight-bold">REGISTER</legend>
+                    <div class="row container">
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <p class="font-weight-bold">{{form.name.label}}<span style="color: red;">*</span></p>
+                            <p>{{form.name}}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <p class="font-weight-bold">{{form.father_name.label}}<span style="color: red;">*</span></p>
+                            <p>{{form.father_name}}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <p class="font-weight-bold">{{form.dob.label}}<span style="color: red;">*</span></p>
+                            <p>{{form.dob}}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <p class="font-weight-bold">{{form.gender.label}}</p>
+                            <p>{{form.gender}}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <p class="font-weight-bold">{{form.mobile_no.label}}<span style="color: red;">*</span></p>
+                            <p>{{form.mobile_no}}</p>
+                            <span style="color: red;">{{form.mobile_no.errors}}</span>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <p class="font-weight-bold">{{form.email.label}}</p>
+                            <p>{{form.email}}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                            <p class="font-weight-bold">{{form.address.label}}<span style="color: red;">*</span></p>
+                            <p>{{form.address}}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <p class="font-weight-bold">{{form.photo.label}}<span style="color: red;">*</span></p>
+                            <p>{{form.photo}}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <p class="font-weight-bold">{{form.adhaar_front.label}}<span style="color: red;">*</span></p>
+                            <p>{{form.adhaar_front}}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <p class="font-weight-bold">{{form.adhaar_back.label}}<span style="color: red;">*</span></p>
+                            <p>{{form.adhaar_back}}</p>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <p class="font-weight-bold">{{form.signature.label}}<span style="color: red;">*</span></p>
+                            <p>{{form.signature}}</p>
+                        </div>
+                        <div class="container">
+                            <button type="submit" class="btn btn-lg btn-block" style="background-color: darkorange; color:white;">Pay</button>
+                        </div>
+                    </div>
+                </fieldset>
+                <br>
+                <br>
+            </form>
+        </div>
+    </div>
+    <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3"></div>
+</div>
+{% endblock %}

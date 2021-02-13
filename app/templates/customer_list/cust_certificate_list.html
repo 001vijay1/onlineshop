@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}Customer|List{% endblock %}
+{% block  content %}
+<div class="header" style="background-color:rgb(253, 153, 23);padding:20px;">
+    <h2 class="text-center" style="color:white;">CUSTOMER LIST</h2>
+</div>
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+<br>
+<div class="container">
+    <a href="{% url 'upload_certificate' %}" class="btn btn-primary float-right">Upload Certificate</a><p><br><br>
+    <table id="example" class="display table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>FATHER NAME</th>
+                <th>MOBILE</th>
+                <th>REGISTRATION NO</th>
+                <th>DATE</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in  data %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.father_name}}</td>
+                <td>{{item.mobile}}</td>
+                <td>{{item.registration_no}}</td>
+                <td>{{item.date}}</td>
+                <td><a href="{% url 'cust_certificate_details' id=item.id %}" class="btn btn-success">View</a></td>
+                <td><a href="{% url 'delete_cust_certificate' id=item.id %}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {% endfor%}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>NAME</th>
+                <th>FATHER NAME</th>
+                <th>MOBILE</th>
+                <th>REGISTRATION NO</th>
+                <th>DATE</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<script>
+
+    $(document).ready( function () {
+        $('#example').DataTable();
+    });
+</script>
+{% endblock %}

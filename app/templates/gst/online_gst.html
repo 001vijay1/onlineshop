@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{%load static %}
+{% block title %}Online|GST{% endblock %}
+{% block  content %}
+<div class="header" style="background-color:rgb(253, 153, 23);padding:20px;">
+    <h2 class="text-center" style="color:white;">GOODS & SERVICE TAX(GST)</h2>
+</div>
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success">
+        <a class="close" href="#" data-dismiss="alert">×</a>
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+<div style="margin-top: 2%;margin-left:15%">
+    <div class="row">
+        <div class="card text-white bg-primary mb-3" style="max-width: 15rem;">
+            <div class="card-header">GST Registration</div>
+            <div class="card-body">
+            <h5 class="card-title">Rs. 2000/.</h5>
+            <p>GST Registration is a process by which a taxpayer gets himself registered under GST</p>
+            </div>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="card text-white bg-secondary mb-3" style="max-width: 15rem;">
+            <div class="card-header">GST Return Filing</div>
+            <div class="card-body">
+                <h5 class="card-title">Rs. 500/Month.</h5>
+                <p>GST return is a document that will contain all the details of your sales, purchases, tax collected on sales (output tax), and tax paid on purchases (input tax)</p>
+
+            </div>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="card text-white bg-success mb-3" style="max-width: 15rem;">
+            <div class="card-header">Income Tax Return</div>
+            <div class="card-body">
+                <h5 class="card-title">Rs. 3000/.</h5>
+                <p>Income Tax Return (ITR) is a form which a person is supposed to submit to the Income Tax Department of India</p>
+            </div>
+        </div>&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="card text-white bg-danger mb-3" style="max-width: 15rem;">
+            <div class="card-header">TDS Return</div>
+            <div class="card-body">
+                <h5 class="card-title">Rs. 300/Month.</h5>
+                <p>Tax deducted at source (TDS) is the practice of reducing tax evasion and spillage by making it mandatory to deduct TDS from payments at pre-defined rates</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <img src="{% static 'images/IMG-20210211-WA0002.jpg' %}" alt="photo" height="4%" width="100%" srcset="">
+</div>
+{% endblock %}
